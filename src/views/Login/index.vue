@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-nav-bar title="登录" left-arrow>
+    <van-nav-bar title="登录" left-arrow @click-left="$router.back()">
       <van-icon name="cross" slot="left"
     /></van-nav-bar>
     <van-form @submit="onSubmit" ref="form">
@@ -70,6 +70,7 @@ export default {
         const res = await login(values)
         console.log(res)
         this.$store.commit('setUser', res.data.data)
+        this.$router.push({ name: 'my' })
       } catch (err) {
         console.log(err)
       }
