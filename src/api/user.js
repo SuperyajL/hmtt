@@ -1,5 +1,4 @@
 import request from '@/utils/request'
-import store from '@/store'
 export const login = ({ mobile, code }) => {
   return request({
     method: 'POST',
@@ -13,10 +12,7 @@ export const login = ({ mobile, code }) => {
 
 export const getUserInfo = () => {
   return request({
-    url: 'user',
-    headers: {
-      Authorization: 'Beater ' + store.state.user.token
-    }
+    url: 'user'
   })
 }
 
